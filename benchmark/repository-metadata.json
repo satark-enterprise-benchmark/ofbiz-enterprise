@@ -1,0 +1,25 @@
+{
+  "name": "ofbiz-enterprise",
+  "org_url": "https://github.com/satark-enterprise-benchmark/ofbiz-enterprise",
+  "upstream_url": "https://github.com/apache/ofbiz-framework",
+  "default_branch": "trunk",
+  "baseline_sha": "fe96fcc0dcfa71cc3db87676bc179b11652ae798",
+  "acquisition_date": "2026-11-16T21:10:24Z",
+  "license": "Apache-2.0",
+  "maintained_status": "fork-of-active-upstream",
+  "docker_compose_available": true,
+  "docker_compose_paths": [
+    "docker/examples/postgres-demo/docker-compose.yml"
+  ],
+  "messaging": ["JMS (optional, Service Engine)", "JobSandbox / job poller (DB-backed async)"],
+  "databases": ["H2 (default embedded)", "PostgreSQL (supported/example)", "MySQL (supported)"],
+  "languages": ["Java", "Groovy", "FreeMarker", "XML (entity/service/widget defs)", "JavaScript (limited UI)"],
+  "architecture_pattern": "modular monolith ERP (component-based OFBiz stack: Entity + Service + Web engines)",
+  "benchmark_purpose": "Phase 1 Satark AI Enterprise PII Benchmark — map party/order/accounting PII entities, service/web data paths, and environment readiness",
+  "inaccessible_items": [
+    "Runtime startup not verified on documentation host (JDK 25 missing)",
+    "OFBiz plugins repository not cloned (pullPluginSource.sh available but not executed)",
+    "Full Entity Engine schema generation against PostgreSQL not executed",
+    "Live JMS broker configuration beyond serviceengine.xml defaults not validated"
+  ]
+}

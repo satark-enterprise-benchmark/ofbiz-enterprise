@@ -1,0 +1,26 @@
+flowchart LR
+  datamodel[applications/datamodel]
+  party[party]
+  order[order]
+  accounting[accounting]
+  product[product]
+  security[framework/security]
+  entity[framework/entity]
+  service[framework/service]
+  webapp[framework/webapp]
+
+  datamodel --> entity
+  party --> datamodel
+  order --> datamodel
+  accounting --> datamodel
+  product --> datamodel
+  party --> service
+  order --> service
+  accounting --> service
+  order --> party
+  accounting --> party
+  accounting --> order
+  service --> entity
+  webapp --> service
+  security --> entity
+  party --> security

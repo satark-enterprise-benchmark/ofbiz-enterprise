@@ -1,0 +1,18 @@
+sequenceDiagram
+  participant U as User / Client
+  participant W as Web / REST
+  participant S as Service Engine
+  participant E as Entity Engine
+  participant DB as RDBMS
+
+  U->>W: Submit party/order/payment form or API call
+  W->>S: Invoke service with params
+  S->>S: AuthZ / validation / ECA
+  S->>E: create/store/find entities
+  E->>DB: JDBC SQL
+  DB-->>E: Result set / update count
+  E-->>S: GenericValues
+  S-->>W: Service result map
+  W-->>U: Screen or JSON response
+
+  Note over S,DB: Async jobs re-enter Service Engine later via JobSandbox poller
